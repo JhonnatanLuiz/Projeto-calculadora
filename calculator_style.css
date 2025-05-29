@@ -1,0 +1,160 @@
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* Added to ensure no default body margin */
+}
+
+.calculator {
+    width: 100%;
+    max-width: 380px; /* Max width of the calculator */
+    border-radius: 10px; /* Rounded corners for the calculator body */
+    /* Added properties for physical look */
+    background-color: #4A4A4A; /* Darker calculator body */
+    padding: 20px; /* Padding around the calculator internals */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.22); /* More pronounced shadow */
+}
+
+#history-display { /* Assuming this ID exists from previous tasks */
+    font-size: 0.8em;
+    height: 60px; /* Adjusted height */
+    overflow-y: auto;
+    background-color: #5a5a5a; /* Slightly lighter than body for contrast */
+    color: #E0E0E0; /* Light text for history */
+    border-radius: 5px;
+    padding: 10px; /* Padding inside history */
+    margin-bottom: 10px; /* Space below history */
+    text-align: right;
+    border: 1px solid #333;
+}
+
+#history-display div {
+    padding-bottom: 2px; /* Space between history entries */
+}
+
+
+#display {
+    font-size: 2.8em; /* Large font for the display */
+    height: 90px;
+    overflow-x: auto; /* Allow scrolling for long numbers */
+    white-space: nowrap; /* Keep number on one line */
+    padding: 10px 15px; /* Padding inside display */
+    border-radius: 5px; /* Rounded corners for display */
+    /* Added properties for physical look */
+    background-color: #C9D2C3; /* Typical LCD display background color */
+    color: #333A40; /* Dark text for display */
+    font-family: 'Orbitron', sans-serif; /* Digital-looking font (needs import or fallback) */
+    border: 2px solid #333; /* Border around display */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); /* Inner shadow for display */
+}
+
+.calculator-buttons .btn {
+    font-size: 1.5em;
+    padding: 15px; /* Adjusted padding */
+    border: 1px solid #3D3D3D; /* Darker borders for buttons */
+    border-radius: 8px; /* More rounded buttons */
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2); /* Subtle shadow for buttons */
+    transition: all 0.1s ease; /* Smooth transition for clicks */
+}
+
+.calculator-buttons .btn:active {
+    background-color: #c8ced3; /* Default active state, can be overridden */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); /* Inner shadow on click */
+    transform: translateY(1px); /* Slight press down effect */
+}
+
+/* Default button styling - for numbers and new functions like sqrt, x^2 */
+.btn-light {
+    background-color: #8A8A8A; /* Medium gray for number buttons */
+    color: #FFFFFF; /* White text */
+}
+.btn-light:hover {
+    background-color: #9A9A9A;
+}
+.btn-light:active {
+    background-color: #7A7A7A;
+}
+
+
+/* Styling for operator buttons (+, -, *, /) */
+.btn-operator {
+    background-color: #FF9F0A; /* Orange for operators */
+    color: white;
+}
+.btn-operator:hover {
+    background-color: #E08E09;
+}
+.btn-operator:active {
+    background-color: #C77E08;
+}
+
+
+/* Styling for the equals button */
+.btn-equal { /* Bootstrap class is .btn-primary, this is if we use a custom class or ID */
+    background-color: #007AFF; /* Blue for equals */
+    color: white;
+}
+#equals.btn-equal { /* More specific if #equals is used with .btn-equal */
+    background-color: #FFBF00; /* Amber/Orange for equals */
+    color: #333A40;
+}
+#equals.btn-equal:hover {
+    background-color: #E0A800;
+}
+#equals.btn-equal:active {
+    background-color: #C79400;
+}
+
+/* Styling for clear buttons (AC, C) */
+.btn-clear { /* AC button */
+    background-color: #D1D1D6; /* Light gray, distinct from numbers */
+    color: #333A40;
+}
+.btn-clear:hover {
+    background-color: #BDBDC2;
+}
+.btn-clear:active {
+    background-color: #AEAEB3;
+}
+
+/* C or CE button, assuming .btn-secondary is used from HTML */
+#clear-entry.btn-secondary, 
+#decimal.btn-secondary { /* Assuming decimal also uses btn-secondary */
+    background-color: #6C757D; /* Standard Bootstrap secondary, or a custom gray */
+    color: white;
+}
+#clear-entry.btn-secondary:hover,
+#decimal.btn-secondary:hover {
+    background-color: #5A6268;
+}
+#clear-entry.btn-secondary:active,
+#decimal.btn-secondary:active {
+    background-color: #545B62;
+}
+
+/* Specific styling for new function buttons if they are not .btn-light */
+#powerButton, #sqrtButton, #percentButton {
+    background-color: #6C6C6E; /* Darker gray for special functions */
+    color: #FFFFFF;
+}
+#powerButton:hover, #sqrtButton:hover, #percentButton:hover {
+    background-color: #7C7C7E;
+}
+#powerButton:active, #sqrtButton:active, #percentButton:active {
+    background-color: #5C5C5E;
+}
+
+/* Ensure Bootstrap grid row spacing is consistent */
+.calculator-buttons .row {
+    margin-bottom: 8px; /* Add some space between rows of buttons */
+}
+.calculator-buttons .row:last-child {
+    margin-bottom: 0; /* No margin for the last row */
+}
+
+/* Remove the h1 "Calculadora" title to make it look more like a physical device */
+.calculator .card-body > h1 {
+    display: none;
+}
